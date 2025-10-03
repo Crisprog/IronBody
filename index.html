@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html -->
+<html lang="pt-PT"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronBody Transform - Online Coach</title>
+    <style>
+        /* Reset e estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #e74c3c;
+            --secondary: #2c3e50;
+            --accent: #f39c12;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --gray: #95a5a6;
+            --muscle: #e67e22;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header e Navegação */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-muscle {
+            background-color: var(--muscle);
+        }
+        
+        .btn-muscle:hover {
+            background-color: #d35400;
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary), var(--muscle));
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 1;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Seção de Benefícios */
+        .benefits {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+            border-left: 4px solid var(--muscle);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            font-size: 40px;
+            color: var(--muscle);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Seção de Planos */
+        .plans {
+            padding: 100px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .plans-category {
+            margin-bottom: 80px;
+        }
+        
+        .category-title {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--muscle);
+        }
+        
+        .category-title h3 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .category-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .plan-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .plan-popular {
+            border: 2px solid var(--muscle);
+        }
+        
+        .plan-popular .plan-header {
+            background: linear-gradient(135deg, var(--muscle), #e67e22);
+        }
+        
+        .plan-header {
+            background: linear-gradient(135deg, var(--muscle), #d35400);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .plan-period {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .plan-features {
+            padding: 30px;
+        }
+        
+        .plan-features ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .plan-features li::before {
+            content: "✓";
+            color: var(--muscle);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .plan-button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Seção WhatsApp */
+        .whatsapp-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            text-align: center;
+        }
+        
+        .whatsapp-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .whatsapp-section p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Seção de Transformações */
+        .transformations {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .transformations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .transformation-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .transformation-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .transformation-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .transformation-content {
+            padding: 25px;
+        }
+        
+        .transformation-content h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            text-align: center;
+        }
+        
+        .transformation-stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .stat-item h4 {
+            font-size: 1.8rem;
+            color: var(--muscle);
+            margin-bottom: 5px;
+        }
+        
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .transformation-text {
+            font-style: italic;
+            text-align: center;
+            color: var(--dark);
+        }
+        
+        /* Seção FAQ */
+        .faq {
+            padding: 100px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            background-color: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-answer {
+            background-color: white;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+        
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .contact-info {
+            color: #bdc3c7;
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--muscle);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Botão WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links li {
+                margin: 5px 0;
+            }
+            
+            .hero {
+                padding: 120px 0 60px;
+            }
+            
+            .benefits, .plans, .transformations, .faq {
+                padding: 60px 0;
+            }
+            
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/351925378739" class="whatsapp-float" target="_blank">
+        💬
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#" class="logo">IronBody<span>Transform</span></a>
+                <ul class="nav-links">
+                    <li><a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#benefits">Benefícios</a></li>
+                    <li><a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#plans">Planos</a></li>
+                    <li><a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#transformations">Resultados</a></li>
+                    <li><a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#faq">FAQ</a></li>
+                    <li><a href="https://wa.me/351925378739" class="btn btn-whatsapp" target="_blank">Contactar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>IronBody Transform</h1>
+            <div class="hero-subtitle">Online Coach - Especialista em Emagrecimento</div>
+            <p>Programas personalizados para ginásio com acompanhamento especializado e vídeos explicativos</p>
+            <a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#plans" class="btn btn-muscle">Começar Transformação</a>
+        </div>
+    </section>
+
+    <!-- Seção de Benefícios -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Metodologia Comprovada</h2>
+                <p>Treino especializado para ginásio e nutrição estratégica para resultados reais</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏋️</div>
+                    <h3>Treino para Ginásio</h3>
+                    <p>Programas otimizados para equipamentos de academia e máxima eficiência.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎥</div>
+                    <h3>Vídeos Explicativos</h3>
+                    <p>Instruções detalhadas em vídeo para cada exercício do seu programa.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <h3>Suporte Personalizado</h3>
+                    <p>Acompanhamento constante via WhatsApp para dúvidas e ajustes.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Resultados Comprovados</h3>
+                    <p>Metodologia focada em emagrecimento saudável e duradouro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Planos -->
+    <section class="plans" id="plans">
+        <div class="container">
+            <div class="plans-category">
+                <div class="category-title">
+                    <h3>Programas de Emagrecimento</h3>
+                    <p>Escolha a duração ideal para alcançar seus objetivos no ginásio</p>
+                </div>
+                <div class="plans-grid">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3 class="plan-name">8 Semanas</h3>
+                            <div class="plan-price">€105</div>
+                            <div class="plan-period">(€13/semana)</div>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li>Plano de treino para ginásio</li>
+                                <li>Orientação nutricional básica</li>
+                                <li>Vídeos explicativos dos exercícios</li>
+                                <li>Suporte WhatsApp</li>
+                                <li>2 avaliações de progresso</li>
+                            </ul>
+                            <a href="https://wa.me/351925378739?text=Ol%C3%A1!%20Gostaria%20do%20Programa%208%20Semanas" class="btn btn-muscle plan-button" target="_blank">Escolher Programa</a>
+                        </div>
+                    </div>
+                    <div class="plan-card plan-popular">
+                        <div class="discount-badge">Mais Popular</div>
+                        <div class="plan-header">
+                            <h3 class="plan-name">12 Semanas</h3>
+                            <div class="plan-price">€126</div>
+                            <div class="plan-period">(€10.5/semana)</div>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li>Plano de treino para ginásio</li>
+                                <li>Plano alimentar completo</li>
+                                <li>Vídeos explicativos detalhados</li>
+                                <li>Suporte WhatsApp ilimitado</li>
+                                <li>4 avaliações de progresso</li>
+                                <li>Ajustes quinzenais</li>
+                            </ul>
+                            <a href="https://wa.me/351925378739?text=Ol%C3%A1!%20Gostaria%20do%20Programa%2012%20Semanas" class="btn btn-muscle plan-button" target="_blank">Escolher Programa</a>
+                        </div>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3 class="plan-name">16 Semanas</h3>
+                            <div class="plan-price">€159</div>
+                            <div class="plan-period">(€10/semana)</div>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li>Plano de treino avançado</li>
+                                <li>Plano alimentar personalizado</li>
+                                <li>Vídeos explicativos em HD</li>
+                                <li>Suporte WhatsApp prioritário</li>
+                                <li>6 avaliações de progresso</li>
+                                <li>Transformação completa</li>
+                            </ul>
+                            <a href="https://wa.me/351925378739?text=Ol%C3%A1!%20Gostaria%20do%20Programa%2016%20Semanas" class="btn btn-muscle plan-button" target="_blank">Escolher Programa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plano de Longa Duração -->
+            <div class="plans-grid" style="justify-content: center;">
+                <div class="plan-card" style="max-width: 400px;">
+                    <div class="discount-badge">Melhor Custo</div>
+                    <div class="plan-header">
+                        <h3 class="plan-name">6 Meses</h3>
+                        <div class="plan-price">€288</div>
+                        <div class="plan-period">(€48/mês)</div>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li>Plano de treino evolutivo</li>
+                            <li>Plano alimentar com ajustes</li>
+                            <li>Vídeos explicativos premium</li>
+                            <li>Suporte WhatsApp 24/7</li>
+                            <li>12 avaliações de progresso</li>
+                            <li>Mentoria completa</li>
+                        </ul>
+                        <a href="https://wa.me/351925378739?text=Ol%C3%A1!%20Gostaria%20do%20Programa%206%20Meses" class="btn btn-muscle plan-button" target="_blank">Escolher Programa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Transformações -->
+    <section class="transformations" id="transformations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Transformações Reais</h2>
+                <p>Resultados impressionantes dos nossos clientes em poucos meses</p>
+            </div>
+            <div class="transformations-grid">
+                <div class="transformation-card">
+                    
+                    <div class="transformation-content">
+                        <h3>Carlos - 12 Semanas</h3>
+                        <div class="transformation-stats">
+                            <div class="stat-item">
+                                <h4>-15kg</h4>
+                                <p>Perda de Peso</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>3</h4>
+                                <p>Meses</p>
+                            </div>
+                        </div>
+                        <p class="transformation-text">"Com o programa de 12 semanas consegui perder 15kg e ganhar massa muscular. Os vídeos explicativos foram essenciais!"</p>
+                    </div>
+                </div>
+                <div class="transformation-card">
+                    
+                    <div class="transformation-content">
+                        <h3>Ana - 16 Semanas</h3>
+                        <div class="transformation-stats">
+                            <div class="stat-item">
+                                <h4>-12kg</h4>
+                                <p>Perda de Peso</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>4</h4>
+                                <p>Meses</p>
+                            </div>
+                        </div>
+                        <p class="transformation-text">"Perdi 12kg em 4 meses seguindo o plano de treino e nutrição. O suporte via WhatsApp fez toda a diferença!"</p>
+                    </div>
+                </div>
+                <div class="transformation-card">
+                    
+                    <div class="transformation-content">
+                        <h3>Miguel - 6 Meses</h3>
+                        <div class="transformation-stats">
+                            <div class="stat-item">
+                                <h4>-22kg</h4>
+                                <p>Perda de Peso</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>6</h4>
+                                <p>Meses</p>
+                            </div>
+                        </div>
+                        <p class="transformation-text">"Em 6 meses transformei completamente meu corpo. O programa de longo prazo foi o melhor investimento da minha vida!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção WhatsApp -->
+    <section class="whatsapp-section">
+        <div class="container">
+            <h2>Comece Sua Transformação Hoje!</h2>
+            <p>Fale diretamente com nosso Online Coach e receba um plano personalizado</p>
+            <a href="https://wa.me/351925378739" class="btn btn-whatsapp" target="_blank">Falar com Coach</a>
+        </div>
+    </section>
+
+    <!-- Seção FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+                <p>Tire suas dúvidas sobre nossos programas e metodologia</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Preciso ter experiência em ginásio?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não! Todos os programas são adaptados ao seu nível. Temos versões para iniciantes, intermediários e avançados. Os vídeos explicativos tornam o aprendizado muito fácil.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como funcionam os vídeos explicativos?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Cada exercício do seu plano tem um vídeo demonstrativo mostrando a execução correta, ângulos, respiração e variações. Você recebe acesso a uma plataforma exclusiva com todo o conteúdo.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Os planos alimentares são personalizados?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Todos os planos alimentares são criados considerando suas preferências, restrições, objetivos e rotina diária. Não trabalhamos com dietas genéricas.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Qual o horário de atendimento?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Atendemos de Segunda a Sexta-feira das 7h às 21h. Fora deste horário, as mensagens serão respondidas no próximo dia útil.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>IronBody Transform</h3>
+                    <p>Online Coach - Especialistas em Emagrecimento</p>
+                    <p>Programas personalizados para ginásio com resultados comprovados</p>
+                    <div class="social-links">
+                        <a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#">FB</a>
+                        <a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#">IG</a>
+                        <a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#">YT</a>
+                        <a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#">TT</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Programas</h3>
+                    <ul class="footer-links">
+                        <li><a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#plans">8 Semanas</a></li>
+                        <li><a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#plans">12 Semanas</a></li>
+                        <li><a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#plans">16 Semanas</a></li>
+                        <li><a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#plans">6 Meses</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Suporte</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/351925378739" target="_blank">WhatsApp</a></li>
+                        <li><a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#faq">Perguntas Frequentes</a></li>
+                        <li><a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#">Política de Privacidade</a></li>
+                        <li><a href="file:///C:/Users/Crist/Downloads/deepseek_html_20251003_c5f9de.html#">Termos de Serviço</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="contact-info">
+                        <li>📞 Telefone: +351 925 378 739</li>
+                        <li>💬 WhatsApp: +351 925 378 739</li>
+                        <li>📧 Email: coach@ironbodytransform.pt</li>
+                        <li>🕒 Horário: Seg-Sex, 7h-21h</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 IronBody Transform - Online Coach. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('active');
+                
+                // Altera o ícone
+                const icon = question.querySelector('span:last-child');
+                icon.textContent = answer.classList.contains('active') ? '-' : '+';
+            });
+        });
+        
+        // Smooth Scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body></html>
